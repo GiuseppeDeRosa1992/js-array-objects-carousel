@@ -1,6 +1,12 @@
 //richiamo il tag div con classe container dall'html
 let div = document.querySelector("div")
 
+let arrayImg = document.getElementsByClassName("image")
+console.log(arrayImg)
+
+let imgBlock;
+let nextImg;
+
 //Creo lista oggetti di tutte le immagini
 const objectsImages = [
     {
@@ -26,10 +32,21 @@ const objectsImages = [
     }
 ];
 
-// Creo ciclo for che mi cicla sulla lunghezza della lista e dentro richiao una funzione che ogni giro mi crea l'immagine da mettere
-for(let i = 0; i < objectsImages.length; i++) {
-    let arrayImages = objectsImages[i]
-    div.innerHTML += createdImg(arrayImages.image, arrayImages.title, arrayImages.text)
-}
+
+document.getElementById("next").addEventListener("click", function () {
+    // Creo ciclo for che mi cicla sulla lunghezza della lista e dentro richiao una funzione che ogni giro mi crea l'immagine da mettere
+    for (let i = 0; i < objectsImages.length; i++) {
+        let arrayImages = objectsImages[i]
+        div.innerHTML += createdImg(arrayImages.image, arrayImages.title, arrayImages.text)
+    }
+    //se img contiene block allora glielo rimuovo
+    if (arrayImages.classList.contains("block")) {
+        arrayImages.classList.remove("block");
+        console.log("ho tolto block all'immagine?", i);
+        //do alla variabile imgBlock lo stesso valore di i senno non viene visto fuori dal ciclo questo valore
+        imgBlock = i;
+    }
+    
+})
 
 

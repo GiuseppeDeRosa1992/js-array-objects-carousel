@@ -5,9 +5,9 @@ img {
     object-fit: cover;
 }
 
-/* .none {
+.none {
     display: none;
-} */
+}
 
 .block {
     display: block;
