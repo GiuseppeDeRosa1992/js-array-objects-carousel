@@ -12,3 +12,10 @@ img {
 .block {
     display: block;
 }
+
+.text {
+    position: absolute;
+    top: 12rem;
+    padding: 0.5rem;
+    text-align: end;
+}
