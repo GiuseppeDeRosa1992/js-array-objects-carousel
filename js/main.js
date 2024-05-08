@@ -34,13 +34,14 @@ const objectsImages = [
 
 //Richiamo tramite id il bottone successivo dell'html
 document.getElementById("next").addEventListener("click", function () {
-    if (iActive < 4) {
+    if (iActive <= 4) {
         div.innerHTML = createdImg(objectsImages[iActive].image, objectsImages[iActive].title, objectsImages[iActive].text, "block")
         iActive++
     }
-    else {
+    else if (iActive = 4) {
         iActive = 0
         div.innerHTML = createdImg(objectsImages[iActive].image, objectsImages[iActive].title, objectsImages[iActive].text, "block")
+        iActive++
     }
 
 })
