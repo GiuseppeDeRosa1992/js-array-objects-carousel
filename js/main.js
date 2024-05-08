@@ -32,19 +32,19 @@ const objectsImages = [
 ];
 
 
-//Richiamo tramite id il bottone successivo dell'html
-document.getElementById("next").addEventListener("click", function () {
-    if (iActive <= 4) {
-        div.innerHTML = createdImg(objectsImages[iActive].image, objectsImages[iActive].title, objectsImages[iActive].text, "block")
-        iActive++
-    }
-    else if (iActive = 4) {
-        iActive = 0
-        div.innerHTML = createdImg(objectsImages[iActive].image, objectsImages[iActive].title, objectsImages[iActive].text, "block")
-        iActive++
-    }
+// //Richiamo tramite id il bottone successivo dell'html
+// document.getElementById("next").addEventListener("click", function () {
+//     if (iActive <= 4) {
+//         div.innerHTML = createdImg(objectsImages[iActive].image, objectsImages[iActive].title, objectsImages[iActive].text, "block")
+//         iActive++
+//     }
+//     else if (iActive = 4) {
+//         iActive = 0
+//         div.innerHTML = createdImg(objectsImages[iActive].image, objectsImages[iActive].title, objectsImages[iActive].text, "block")
+//         iActive++
+//     }
 
-})
+// })
 
 //Richiamo tramite id il bottone precedente dell'html
 document.getElementById("previous").addEventListener("click", function () {
@@ -59,5 +59,16 @@ document.getElementById("previous").addEventListener("click", function () {
     }
 })
 
-
+//setinterval che mi fa partire le slide e cambiano ogni secondo e mezzo senza che clicco
+setInterval(() => {
+    if (iActive <= 4) {
+        div.innerHTML = createdImg(objectsImages[iActive].image, objectsImages[iActive].title, objectsImages[iActive].text, "block")
+        iActive++
+    }
+    else if (iActive = 4) {
+        iActive = 0
+        div.innerHTML = createdImg(objectsImages[iActive].image, objectsImages[iActive].title, objectsImages[iActive].text, "block")
+        iActive++
+    }
+}, 1500);
 
