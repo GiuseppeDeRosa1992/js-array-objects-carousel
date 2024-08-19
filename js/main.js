@@ -32,8 +32,35 @@ const objectsImages = [
 ];
 
 
-// //Richiamo tramite id il bottone successivo dell'html
-// document.getElementById("next").addEventListener("click", function () {
+//Richiamo tramite id il bottone successivo dell'html
+document.getElementById("next").addEventListener("click", function () {
+    if (iActive <= objectsImages.length - 1) {
+        div.innerHTML = createdImg(objectsImages[iActive].image, objectsImages[iActive].title, objectsImages[iActive].text, "block")
+        iActive++
+    }
+    else if (iActive = objectsImages.length - 1) {
+        iActive = 0
+        div.innerHTML = createdImg(objectsImages[iActive].image, objectsImages[iActive].title, objectsImages[iActive].text, "block")
+        iActive++
+    }
+
+})
+
+//Richiamo tramite id il bottone precedente dell'html
+document.getElementById("previous").addEventListener("click", function () {
+    //se iactive è maggiore di 0 allora decrementa di 1 e poi stampa
+    if (iActive > 0) {
+        iActive--
+        div.innerHTML = createdImg(objectsImages[iActive].image, objectsImages[iActive].title, objectsImages[iActive].text, "block")
+    }
+    else {
+        iActive = objectsImages.length - 1
+        div.innerHTML = createdImg(objectsImages[iActive].image, objectsImages[iActive].title, objectsImages[iActive].text, "block")
+    }
+})
+
+// //setinterval che mi fa partire le slide e cambiano ogni secondo e mezzo senza che clicco
+// setInterval(() => {
 //     if (iActive <= 4) {
 //         div.innerHTML = createdImg(objectsImages[iActive].image, objectsImages[iActive].title, objectsImages[iActive].text, "block")
 //         iActive++
@@ -43,32 +70,5 @@ const objectsImages = [
 //         div.innerHTML = createdImg(objectsImages[iActive].image, objectsImages[iActive].title, objectsImages[iActive].text, "block")
 //         iActive++
 //     }
-
-// })
-
-//Richiamo tramite id il bottone precedente dell'html
-document.getElementById("previous").addEventListener("click", function () {
-    //se iactive è maggiore di 0 allora decrementa di 1 e poi stampa
-    if (iActive > 0) {
-        iActive--
-        div.innerHTML = createdImg(objectsImages[iActive].image, objectsImages[iActive].title, objectsImages[iActive].text, "block")
-    }  
-    else {
-        iActive = 4
-        div.innerHTML = createdImg(objectsImages[iActive].image, objectsImages[iActive].title, objectsImages[iActive].text, "block")
-    }
-})
-
-//setinterval che mi fa partire le slide e cambiano ogni secondo e mezzo senza che clicco
-setInterval(() => {
-    if (iActive <= 4) {
-        div.innerHTML = createdImg(objectsImages[iActive].image, objectsImages[iActive].title, objectsImages[iActive].text, "block")
-        iActive++
-    }
-    else if (iActive = 4) {
-        iActive = 0
-        div.innerHTML = createdImg(objectsImages[iActive].image, objectsImages[iActive].title, objectsImages[iActive].text, "block")
-        iActive++
-    }
-}, 1500);
+// }, 1500);
 
